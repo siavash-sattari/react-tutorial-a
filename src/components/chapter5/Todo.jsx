@@ -1,4 +1,4 @@
-function Todo({ todo, onComplete, onDelete }) {
+function Todo({ todo, onComplete, onDelete, onEdit }) {
   return (
     <div className='todo'>
       <div
@@ -7,8 +7,12 @@ function Todo({ todo, onComplete, onDelete }) {
         {todo.text}
       </div>
       <div>
-        <button>Edit</button>
-        <button onClick={onDelete}>Delete</button>
+        <button className='btn' onClick={onEdit}>
+          Edit
+        </button>
+        <button className='btn remove' onClick={onDelete}>
+          Delete
+        </button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import './style.css';
 function TodoApp() {
   const [todos, setTodos] = useState([]);
 
-  const addTodoHandler = inputValue => {
+  const addTodo = inputValue => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
       text: inputValue,
@@ -33,15 +33,26 @@ function TodoApp() {
     setTodos(filteredTodos);
   };
 
+  const updateTodo = (id, newValue) => {
+    const index = todos.findIndex(todo => todo.id === id);
+    // clone : DO NOT MUTATE
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.text = newValue;
+    const updatedTodos = [...todos];
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className='app'>
       <h1>TodoList App</h1>
       <div className='container'>
-        <TodoForm addTodoHandler={addTodoHandler} />
+        <TodoForm submitTodo={addTodo} />
         <TodoList
           todos={todos}
           onComplete={completeTodo}
           onDelete={removeTodo}
+          onUpdate={updateTodo}
         />
       </div>
     </div>
