@@ -1,11 +1,16 @@
 import Todo from './Todo';
 
-function TodoList({ todos, onComplete }) {
+function TodoList({ todos, onComplete, onDelete }) {
   const renderTodos = () => {
     if (todos.length === 0) return <p>Add some todos</p>;
 
     return todos.map(todo => (
-      <Todo key={todo.id} todo={todo} onComplete={() => onComplete(todo.id)} />
+      <Todo
+        key={todo.id}
+        todo={todo}
+        onComplete={() => onComplete(todo.id)}
+        onDelete={() => onDelete(todo.id)}
+      />
     ));
   };
 
