@@ -17,12 +17,16 @@ function TodoApp() {
     setTodos([...todos, newTodo]);
   };
 
+  const completeTodo = id => {
+    console.log(id);
+  };
+
   return (
     <div className='app'>
       <h1>TodoList App</h1>
       <div className='container'>
         <TodoForm addTodoHandler={addTodoHandler} />
-        <TodoList />
+        <TodoList todos={todos} onComplete={completeTodo} />
       </div>
     </div>
   );
