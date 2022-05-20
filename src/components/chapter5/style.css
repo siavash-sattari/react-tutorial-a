@@ -29,3 +29,8 @@
   width: 20rem;
   margin: 10px 0;
 }
+
+.completedTodo {
+  text-decoration: line-through;
+  color: #ccc;
+}
