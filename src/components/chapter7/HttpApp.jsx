@@ -22,13 +22,13 @@ function HttpApp() {
     //     setComments(response.data.slice(0, 4));
     //   })
     //   .catch(error => {
-    //     console.log(error);
+    //     toast.error(error);
     //   });
   }, []);
 
   const getComments = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/comments11');
+      const response = await axios.get('http://localhost:3001/comments');
       setComments(response.data);
     } catch (error) {
       toast.error('Fetching data failed!');
@@ -60,7 +60,11 @@ function HttpApp() {
     <main>
       <section>{renderComments()}</section>
       <section>
-        <FullComment commentId={selectedComment} />
+        <FullComment
+          commentId={selectedComment}
+          setComments={setComments}
+          setSelectedComment={setSelectedComment}
+        />
       </section>
       <section>
         <NewComment setComments={setComments} />

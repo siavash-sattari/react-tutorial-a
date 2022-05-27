@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import './style.css';
 
-function FullComment({ commentId }) {
+function FullComment({ commentId, setComments, setSelectedComment }) {
   const [comment, setComment] = useState(null);
 
   useEffect(() => {
@@ -18,15 +19,30 @@ function FullComment({ commentId }) {
     }
   }, [commentId]);
 
-  const deleteHandler = () => {
-    axios
-      .delete(`http://localhost:3001/comments/${commentId}`)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  // const deleteHandler = () => {
+  //   axios
+  //     .delete(`http://localhost:3001/comments/${commentId}`)
+  //     .then(res => axios.get('http://localhost:3001/comments'))
+  //     .then(res => {
+  //       setComments(res.data);
+  //       setComment(null);
+  //       setSelectedComment(null);
+  //     })
+  //     .catch(error => {
+  //       toast.error(error);
+  //     });
+  // };
+
+  const deleteHandler = async () => {
+    try {
+      await axios.delete(`http://localhost:3001/comments/${commentId}`);
+      const { data } = await axios.get('http://localhost:3001/comments');
+      setComments(data);
+      setComment(null);
+      setSelectedComment(null);
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (

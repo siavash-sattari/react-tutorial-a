@@ -1,5 +1,6 @@
-import axios from 'axios';
 import { useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import './style.css';
 
 function NewComment({ setComments }) {
@@ -17,12 +18,22 @@ function NewComment({ setComments }) {
     });
   };
 
-  const createNewPost = () => {
-    axios
-      .post('http://localhost:3001/comments', comment)
-      .then(res => axios.get('http://localhost:3001/comments'))
-      .then(res => setComments(res.data))
-      .catch(err => console.log(err));
+  // const createNewPost = () => {
+  //   axios
+  //     .post('http://localhost:3001/comments', comment)
+  //     .then(res => axios.get('http://localhost:3001/comments'))
+  //     .then(res => setComments(res.data))
+  //     .catch(err => toast.error(error));
+  // };
+
+  const createNewPost = async () => {
+    try {
+      await axios.post('http://localhost:3001/comments', comment);
+      const { data } = await axios.get('http://localhost:3001/comments');
+      setComments(data);
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (
