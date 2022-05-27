@@ -1,0 +1,21 @@
+.newComment {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #e0e7ff;
+  width: 42rem;
+  height: 11rem;
+  color: #4338ca;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.newComment > div {
+  margin-bottom: 1rem;
+}
+
+.newComment > div label {
+  margin-right: .7rem;
+}
