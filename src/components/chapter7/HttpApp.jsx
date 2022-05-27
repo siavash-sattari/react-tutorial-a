@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 import Comment from './Comment';
 import FullComment from './FullComment';
@@ -27,12 +28,10 @@ function HttpApp() {
 
   const getComments = async () => {
     try {
-      const response = await axios.get(
-        'http://localhost:3001/comments'
-      );
+      const response = await axios.get('http://localhost:3001/comments11');
       setComments(response.data);
     } catch (error) {
-      console.log(error);
+      toast.error('Fetching data failed!');
     }
   };
 
@@ -40,27 +39,31 @@ function HttpApp() {
     setSelectedComment(id);
   };
 
+  const renderComments = () => {
+    let renderValue = <p>Loading ...</p>;
+
+    if (comments) {
+      renderValue = comments.map(comment => (
+        <Comment
+          key={comment.id}
+          name={comment.name}
+          email={comment.email}
+          onClick={() => selectCommentHandler(comment.id)}
+        />
+      ));
+    }
+
+    return renderValue;
+  };
+
   return (
     <main>
-      <section>
-        {comments ? (
-          comments.map(comment => (
-            <Comment
-              key={comment.id}
-              name={comment.name}
-              email={comment.email}
-              onClick={() => selectCommentHandler(comment.id)}
-            />
-          ))
-        ) : (
-          <p>Loading ...</p>
-        )}
-      </section>
+      <section>{renderComments()}</section>
       <section>
         <FullComment commentId={selectedComment} />
       </section>
       <section>
-        <NewComment setComments={setComments}/>
+        <NewComment setComments={setComments} />
       </section>
     </main>
   );
