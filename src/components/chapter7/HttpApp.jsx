@@ -13,16 +13,29 @@ function HttpApp() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/comments')
-      .then(response => {
-        console.log(response.data);
-        setComments(response.data.slice(0, 4));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    getComments();
+    // axios
+    //   .get('https://jsonplaceholder.typicode.com/comments')
+    //   .then(response => {
+    //     console.log(response.data);
+    //     setComments(response.data.slice(0, 4));
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }, []);
+
+  const getComments = async () => {
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/comments'
+      );
+      setComments(response.data.slice(0, 4));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <main>
       <section>
