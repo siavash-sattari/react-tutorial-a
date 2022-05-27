@@ -22,9 +22,16 @@ function FullComment({ commentId }) {
     <>
       {comment ? (
         <div className='fullComment'>
-          <p>name : {comment.name}</p>
-          <p>email {comment.email}</p>
-          <p>body : {comment.body}</p>
+          <p>
+            <span>name : </span>
+            {comment.name}
+          </p>
+          <p>
+            <span>email : </span> {comment.email}
+          </p>
+          <p>
+            <span>body : </span> {comment.body}
+          </p>
         </div>
       ) : (
         <p>{commentId ? 'Loading...' : 'Please select a comment'}</p>
