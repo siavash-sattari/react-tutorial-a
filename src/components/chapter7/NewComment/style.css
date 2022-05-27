@@ -5,7 +5,6 @@
   justify-content: center;
   background-color: #e0e7ff;
   width: 42rem;
-  height: 11rem;
   color: #4338ca;
   border-radius: 5px;
   padding: 1rem;
@@ -17,5 +16,13 @@
 }
 
 .newComment > div label {
-  margin-right: .7rem;
+  margin-right: 0.7rem;
+}
+
+.newComment .addBtn {
+  background-color: #4338ca;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
 }
