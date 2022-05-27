@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import './style.css';
 
-function NewComment() {
+function NewComment({ setComments }) {
   const [comment, setComment] = useState({
     name: '',
     email: '',
@@ -20,12 +20,9 @@ function NewComment() {
   const createNewPost = () => {
     axios
       .post('http://localhost:3001/comments', comment)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      .then(res => axios.get('http://localhost:3001/comments'))
+      .then(res => setComments(res.data))
+      .catch(err => console.log(err));
   };
 
   return (

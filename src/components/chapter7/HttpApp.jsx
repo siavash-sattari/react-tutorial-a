@@ -30,7 +30,7 @@ function HttpApp() {
       const response = await axios.get(
         'http://localhost:3001/comments'
       );
-      setComments(response.data.slice(0, 4));
+      setComments(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +60,7 @@ function HttpApp() {
         <FullComment commentId={selectedComment} />
       </section>
       <section>
-        <NewComment />
+        <NewComment setComments={setComments}/>
       </section>
     </main>
   );
