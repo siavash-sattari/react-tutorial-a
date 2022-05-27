@@ -1,10 +1,14 @@
 import './style.css';
 
-function Comment() {
+function Comment({ name, email }) {
   return (
     <div className='comment'>
-      <p>name</p>
-      <p>email</p>
+      <p>
+        <span>name :</span> {name}
+      </p>
+      <p>
+        <span>email :</span> {email}
+      </p>
     </div>
   );
 }
