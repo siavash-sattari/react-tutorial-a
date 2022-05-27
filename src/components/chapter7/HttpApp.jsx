@@ -16,7 +16,7 @@ function HttpApp() {
   useEffect(() => {
     getComments();
     // axios
-    //   .get('https://jsonplaceholder.typicode.com/comments')
+    //   .get('http://localhost:3001/comments')
     //   .then(response => {
     //     setComments(response.data.slice(0, 4));
     //   })
@@ -28,7 +28,7 @@ function HttpApp() {
   const getComments = async () => {
     try {
       const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/comments'
+        'http://localhost:3001/comments'
       );
       setComments(response.data.slice(0, 4));
     } catch (error) {
