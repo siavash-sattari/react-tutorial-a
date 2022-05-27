@@ -18,6 +18,17 @@ function FullComment({ commentId }) {
     }
   }, [commentId]);
 
+  const deleteHandler = () => {
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/comments/${commentId}`)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       {comment ? (
@@ -32,6 +43,9 @@ function FullComment({ commentId }) {
           <p>
             <span>body : </span> {comment.body}
           </p>
+          <button className='deleteBtn' onClick={deleteHandler}>
+            Delete
+          </button>
         </div>
       ) : (
         <p>{commentId ? 'Loading...' : 'Please select a comment'}</p>

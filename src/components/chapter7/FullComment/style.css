@@ -5,7 +5,6 @@
   justify-content: center;
   background-color: #e0e7ff;
   width: 42rem;
-  height: 11rem;
   border-radius: 5px;
   margin: 20px 0;
   padding: 1rem;
@@ -15,4 +14,12 @@
 .fullComment span {
   font-weight: bold;
   color: #4338ca;
+}
+
+.fullComment .deleteBtn{
+  background-color: #e0e7ff;
+  border: 1px solid red;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
