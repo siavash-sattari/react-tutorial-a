@@ -11,13 +11,13 @@ import './style.css';
 
 function HttpApp() {
   const [comments, setComments] = useState([]);
+  const [selectedComment, setSelectedComment] = useState(null);
 
   useEffect(() => {
     getComments();
     // axios
     //   .get('https://jsonplaceholder.typicode.com/comments')
     //   .then(response => {
-    //     console.log(response.data);
     //     setComments(response.data.slice(0, 4));
     //   })
     //   .catch(error => {
@@ -36,6 +36,10 @@ function HttpApp() {
     }
   };
 
+  const selectCommentHandler = id => {
+    setSelectedComment(id);
+  };
+
   return (
     <main>
       <section>
@@ -45,6 +49,7 @@ function HttpApp() {
               key={comment.id}
               name={comment.name}
               email={comment.email}
+              onClick={() => selectCommentHandler(comment.id)}
             />
           ))
         ) : (
@@ -52,7 +57,7 @@ function HttpApp() {
         )}
       </section>
       <section>
-        <FullComment />
+        <FullComment commentId={selectedComment} />
       </section>
       <section>
         <NewComment />
