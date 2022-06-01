@@ -1,7 +1,8 @@
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
+import './style.css';
 
 const navbarItems = [
-  { name: 'Home', path: '/' },
+  { name: 'Home', path: '/', exact: true },
   { name: 'About Us', path: '/about-us' },
   { name: 'Profile', path: '/profile' }
 ];
@@ -9,11 +10,16 @@ const navbarItems = [
 function Navigation(props) {
   console.log(props);
   return (
-    <nav>
+    <nav className='navbar'>
       <ul>
         {navbarItems.map(navbarItem => (
           <li key={navbarItem.name}>
-            <Link to={navbarItem.path}>{navbarItem.name}</Link>
+            <NavLink
+              to={navbarItem.path}
+              activeClassName='activeLink'
+              exact={navbarItem.exact || false}>
+              {navbarItem.name}
+            </NavLink>
           </li>
         ))}
       </ul>

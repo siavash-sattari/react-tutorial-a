@@ -1,0 +1,9 @@
+.homePage p,
+.aboutsUS p,
+.profile p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  width: 95%;
+  margin: 0 auto;
+}
