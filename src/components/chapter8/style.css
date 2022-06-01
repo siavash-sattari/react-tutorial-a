@@ -42,7 +42,12 @@
 .sidebar li a {
   font-weight: bold;
   text-decoration: none;
-  color: blue;
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.activeTab {
+  color: blue !important;
 }
 
 .dashboard,
