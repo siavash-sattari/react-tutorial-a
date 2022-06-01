@@ -1,11 +1,8 @@
-import { Link } from 'react-router-dom';
-
-function AboutUs() {
+function AboutUs(props) {
+  console.log(props);
   return (
     <>
       <p>AboutUs</p>
-      <Link to='/'>Go To Homepage</Link>
-      {/* <a href='/'>Go To Homepage</a> */}
     </>
   );
 }
