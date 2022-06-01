@@ -34,3 +34,20 @@
   position: absolute;
   bottom: 0;
 }
+
+.sidebar li {
+  margin: 0.6rem 0;
+}
+
+.sidebar li a {
+  font-weight: bold;
+  text-decoration: none;
+  color: blue;
+}
+
+.dashboard,
+.downloads {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 2rem;
+}
