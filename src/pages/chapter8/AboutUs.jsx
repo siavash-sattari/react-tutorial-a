@@ -1,7 +1,6 @@
 import './style.css';
 
-function AboutUs(props) {
-  console.log(props);
+function AboutUs() {
   return (
     <div className='aboutsUS'>
       <p>About Us</p>

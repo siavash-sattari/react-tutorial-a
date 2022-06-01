@@ -7,15 +7,14 @@ const items = [
   { name: 'Blog - 3', path: '/blogs/3' }
 ];
 
-function Blogs(props) {
-  console.log(props);
+function Blogs() {
   return (
     <div className='blogs'>
       <p>Blogs</p>
       <div className='blogsWrapper'>
         {items.map(item => (
           <div key={item.name}>
-            <Link to={item.path}>
+            <Link to={{ pathname: item.path, search: 'sort=name' }}>
               <div className='singleBlog'>{item.name}</div>
             </Link>
           </div>

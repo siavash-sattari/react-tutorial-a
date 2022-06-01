@@ -1,7 +1,6 @@
 import './style.css';
 
 function Post(props) {
-  console.log(props);
   const id = props.match.params.id || 1;
 
   return (
