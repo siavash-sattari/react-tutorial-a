@@ -1,23 +1,23 @@
 import { Link, withRouter } from 'react-router-dom';
 
+const navbarItems = [
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about-us' },
+  { name: 'Profile', path: '/profile' }
+];
+
 function Navigation(props) {
   console.log(props);
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
+    <nav>
+      <ul>
+        {navbarItems.map(navbarItem => (
+          <li key={navbarItem.name}>
+            <Link to={navbarItem.path}>{navbarItem.name}</Link>
           </li>
-          <li>
-            <Link to='/about-us'>About Us</Link>
-          </li>
-          <li>
-            <Link to='/profile'>Profile</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        ))}
+      </ul>
+    </nav>
   );
 }
 
