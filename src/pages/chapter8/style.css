@@ -1,10 +1,37 @@
 .homePage p,
 .aboutsUS p,
 .profile p,
+.blog p,
+.blogs p,
 .notFound p {
   font-size: 1.2rem;
   font-weight: bold;
   color: #333;
   width: 95%;
   margin: 0 auto;
+}
+
+.blogsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 2rem auto;
+}
+
+.blogsWrapper a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.singleBlog {
+  width: 20rem;
+  height: 20rem;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

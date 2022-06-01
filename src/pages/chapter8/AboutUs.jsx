@@ -4,7 +4,7 @@ function AboutUs(props) {
   console.log(props);
   return (
     <div className='aboutsUS'>
-      <p>AboutUs</p>
+      <p>About Us</p>
     </div>
   );
 }

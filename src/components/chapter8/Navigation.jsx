@@ -4,7 +4,8 @@ import './style.css';
 const navbarItems = [
   { name: 'Home', path: '/', exact: true },
   { name: 'About Us', path: '/about-us' },
-  { name: 'Profile', path: '/profile' }
+  { name: 'Profile', path: '/profile' },
+  { name: 'Blogs', path: '/blogs' }
 ];
 
 function Navigation(props) {
