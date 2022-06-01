@@ -5,7 +5,8 @@ const navbarItems = [
   { name: 'Home', path: '/', exact: true },
   { name: 'About Us', path: '/about-us' },
   { name: 'Profile', path: '/profile' },
-  { name: 'Blogs', path: '/blogs' }
+  { name: 'Blogs', path: '/blogs' },
+  { name: 'Post', path: '/Post' }
 ];
 
 function Navigation(props) {
