@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import TodoApp from './components/chapter5/TodoApp';
 import HttpApp from './components/chapter7/HttpApp';
+import ReactRouter from './components/chapter8/ReactRouter';
 
 // =================================================
 
@@ -16,7 +17,10 @@ function App() {
       {/* <TodoApp /> */}
 
       {/* chapter7/Http-app */}
-      <HttpApp />
+      {/* <HttpApp /> */}
+
+      {/* chapter7/Http-app */}
+      <ReactRouter />
     </>
   );
 }
