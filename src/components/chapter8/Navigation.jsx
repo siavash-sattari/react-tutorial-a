@@ -1,16 +1,15 @@
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 const navbarItems = [
-  { name: 'Home', path: '/', exact: true },
+  { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
   { name: 'Profile', path: '/profile' },
   { name: 'Blogs', path: '/blogs' },
-  { name: 'Post', path: '/Post' }
+  { name: 'Post', path: '/post' }
 ];
 
-function Navigation(props) {
-  console.log(props);
+function Navigation() {
   return (
     <nav className='navbar'>
       <ul>
@@ -18,8 +17,7 @@ function Navigation(props) {
           <li key={navbarItem.name}>
             <NavLink
               to={navbarItem.path}
-              activeClassName='activeLink'
-              exact={navbarItem.exact || false}>
+              className={navData => (navData.isActive ? 'activeLink' : '')}>
               {navbarItem.name}
             </NavLink>
           </li>
@@ -29,4 +27,4 @@ function Navigation(props) {
   );
 }
 
-export default withRouter(Navigation);
+export default Navigation;

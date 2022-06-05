@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Dashboard from '../../components/chapter8/Dashboard';
 import Downloads from '../../components/chapter8/Downloads';
 import Sidebar from '../../components/chapter8/Sidebar';
@@ -9,8 +9,10 @@ function Profile() {
     <div className='profile'>
       <p>Wellcome Back, Dear React Maxi!</p>
       <Sidebar />
-      <Route path='/profile/dashboard' component={Dashboard} />
-      <Route path='/profile/downloads' component={Downloads} />
+      <Routes>
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/downloads' element={<Downloads />} />
+      </Routes>
     </div>
   );
 }

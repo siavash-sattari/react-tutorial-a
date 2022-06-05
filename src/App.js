@@ -19,7 +19,7 @@ function App() {
       {/* chapter7/Http-app */}
       {/* <HttpApp /> */}
 
-      {/* chapter7/Http-app */}
+      {/* chapter8/React router */}
       <ReactRouter />
     </>
   );
